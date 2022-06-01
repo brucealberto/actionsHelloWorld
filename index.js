@@ -4,7 +4,7 @@ const express = require("express");
 const app = express();
 
 const PORT = process.env.PORT || 3000;
-const NODE_ENV = process.env.NODE_ENV;
+const NODE_ENV = process.env.NODE_ENV || 'development';
 
 app.get("/", (_req, res) =>
   res.status(200).send("O Bruce é muito Inteligente!")
