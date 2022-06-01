@@ -3,10 +3,15 @@ const express = require("express");
 
 const app = express();
 
-const port = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3000;
+const NODE_ENV = process.env.NODE_ENV;
 
 app.get("/", (_req, res) =>
   res.status(200).send("O Bruce é muito Inteligente!")
 );
+app.get("/port", (_req, res) => res.status(200).json({ ok: true, port: PORT }));
+app.get("/env", (_req, res) =>
+  res.status(200).json({ ok: true, env: NODE_ENV })
+);
 
-app.listen(port, () => console.log(`Running on port ${port}`));
+app.listen(PORT, () => console.log(`Running on port ${PORT}`));
